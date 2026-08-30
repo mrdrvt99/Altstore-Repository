@@ -14,11 +14,11 @@
       "developerName": "Tonwalter888",
       "subtitle": "YouMod",
       "category": "photo-video",
-      "version": "21.34.3",
-      "versionDate": "2026-08-25",
-      "versionDescription": "YouTube 21.34.3 | YouMod_21.34.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - you can hide PiP by swiping it to edges before minimizing YT.(or disable it from official YT in playback settings if you don't want auto PiP)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa4/YouMod_21.34.3_2.0.0.ipa",
-      "size": 127806561,
+      "version": "21.35.3",
+      "versionDate": "2026-08-30",
+      "versionDescription": "YouTube 21.35.3 | YouMod_21.35.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa5/YouMod_21.35.3_2.0.0.ipa",
+      "size": 128284527,
       "localizedDescription": "YouMod mod. Includes no ads, background playback, downloads, iSponsorBlock, PiP, and more.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
@@ -50,11 +50,11 @@
       },
       "versions": [
         {
-          "version": "21.34.3",
-          "date": "2026-08-25",
-          "localizedDescription": "YouTube 21.34.3 | YouMod_21.34.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - you can hide PiP by swiping it to edges before minimizing YT.(or disable it from official YT in playback settings if you don't want auto PiP)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa4/YouMod_21.34.3_2.0.0.ipa",
-          "size": 127806561,
+          "version": "21.35.3",
+          "date": "2026-08-30",
+          "localizedDescription": "YouTube 21.35.3 | YouMod_21.35.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa5/YouMod_21.35.3_2.0.0.ipa",
+          "size": 128284527,
           "minOSVersion": "16.0"
         }
       ]
