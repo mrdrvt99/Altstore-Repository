@@ -38,14 +38,14 @@
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "itzzace0",
       "version": "21.34.3",
-      "versionDate": "2026-08-25T20:24:30+03:00",
-      "versionDescription": "[YTKACE] YouTube 21.34.3 | YTKACE_21.34.3_0.9.0\n\n### Latest Release, ENJOY!!\r\n#### A new free YouTube enhancer for iOS with downloads, iSponsorBlock, player controls, and interface customization.\r\n> [!NOTE]\r\n> - [Altstore source](https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/ytkace.json) is available now!.\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v0.9.0 release notes](https://github.com/itzzace/ytkace/releases/tag/v0.9.0)\r\n> - you can hide PiP by swiping it to edges before minimizing YT.(or disable it from official YT in playback settings if you don't want auto PiP)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino`  `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!IMPORTANT]\r\n> - make sure you reapply tweak by pressing ✔ again after every sideload so background play/pip and cast work. \r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa2/YTKACE_21.34.3_0.9.0.ipa",
+      "versionDate": "2026-08-29T19:21:50+03:00",
+      "versionDescription": "[YTKACE] YouTube 21.34.3 | YTKACE_21.34.3_0.9.1\n\n### Latest Release, ENJOY!!\r\n#### A new free YouTube enhancer for iOS with downloads, iSponsorBlock, player controls, and interface customization.\r\n> [!NOTE]\r\n> - [Altstore source](https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/ytkace.json) is available now!.\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v0.9.1 release notes](https://github.com/itzzace/ytkace/releases/tag/v0.9.1)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino`  `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!IMPORTANT]\r\n> - make sure you reapply tweak by pressing ✔ again after every sideload so background play/pip and cast work. \r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - now 21.34.3+ requires iOS 17+",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa2/YTKACE_21.34.3_0.9.1.ipa",
       "localizedDescription": "Enhanced YouTube experience.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
       "isLanZouCloud": 0,
-      "size": 128554349,
+      "size": 128557724,
       "type": 1
     },
     {
