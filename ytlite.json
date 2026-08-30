@@ -63,7 +63,7 @@
           "localizedDescription": "YouTube 20.21.6 | YouTubePlus_20.21.6_5.2.2\n\n### iOS15+ build, ENJOY!!\r\n\r\n**Cracked by** [zarzelworkshop](https://t.me/zarzelworkshop)\r\n\r\n> [!NOTE]\r\n> - VolumeBoostYT is not included. \r\n> - YTUHD has more options than latest releases. 4K60HDR full support.\r\n>\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `PleaseDontStopTheMusic`  \r\n\r\n> [!WARNING]\r\n> -  build may break in future when YT update backend.",
           "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa3/YouTubePlus_20.21.6_5.2.2.ipa",
           "size": 115459175,
-          "minOSVersion": "16.0"
+          "minOSVersion": "15.0"
         },
         {
           "version": "19.20.2",
@@ -71,7 +71,7 @@
           "localizedDescription": "YouTube 19.20.2 | YouTubePlus_19.20.2_5.2.2\n\n### iOS14+ build, ENJOY!!\r\n\r\n**Cracked by** [zarzelworkshop](https://t.me/zarzelworkshop)\r\n\r\n> [!NOTE]\r\n> - VolumeBoostYT is not included. \r\n> - YTUHD has more options than latest releases. 4K60HDR full support.\r\n>\r\n> - - -\r\n> #### Extra Tweaks: \r\n> - `YouPip` `YTUHD` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> -  build may break in future when YT update backend.",
           "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa2/YouTubePlus_19.20.2_5.2.2.ipa",
           "size": 106881641,
-          "minOSVersion": "16.0"
+          "minOSVersion": "14.0"
         }
       ]
     }
