@@ -14,11 +14,11 @@
       "developerName": "Tonwalter888",
       "subtitle": "YouMod",
       "category": "photo-video",
-      "version": "21.35.3",
-      "versionDate": "2026-08-30",
-      "versionDescription": "YouTube 21.35.3 | YouMod_21.35.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa5/YouMod_21.35.3_2.0.0.ipa",
-      "size": 128284527,
+      "version": "21.36.6",
+      "versionDate": "2026-09-09",
+      "versionDescription": "YouTube 21.36.6 | YouMod_21.36.6_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - **YTUHD** is not included. 4K is available for A16+ devices.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa1/YouMod_21.36.6_2.0.0.ipa",
+      "size": 128845098,
       "localizedDescription": "YouMod mod. Includes no ads, background playback, downloads, iSponsorBlock, PiP, and more.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
@@ -50,11 +50,11 @@
       },
       "versions": [
         {
-          "version": "21.35.3",
-          "date": "2026-08-30",
-          "localizedDescription": "YouTube 21.35.3 | YouMod_21.35.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - no YTUHD. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa5/YouMod_21.35.3_2.0.0.ipa",
-          "size": 128284527,
+          "version": "21.36.6",
+          "date": "2026-09-09",
+          "localizedDescription": "YouTube 21.36.6 | YouMod_21.36.6_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - **YTUHD** is not included. 4K is available for A16+ devices.\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa1/YouMod_21.36.6_2.0.0.ipa",
+          "size": 128845098,
           "minOSVersion": "16.0"
         }
       ]

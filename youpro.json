@@ -15,10 +15,10 @@
       "subtitle": "YouPro",
       "category": "photo-video",
       "version": "21.24.3",
-      "versionDate": "2026-08-16",
-      "versionDescription": "YouTube 21.24.3 | YouProExtra_21.24.3_1.3.1\n\n### Latest Stable Release, ENJOY!!\r\n> [!NOTE]\r\n> - Bundled with **YTUHD**\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YouSlider` `YTSilentVote` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino`\r\n\r\n> [!WARNING]\r\n> - Limited Support for new YT versions.(+21.25.5). 21.24.3 is the latest build that works with extra tweaks.",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.24.3_1.3.1.ipa",
-      "size": 119894440,
+      "versionDate": "2026-09-10",
+      "versionDescription": "YouTube 21.24.3 | YouProExtra_21.24.3_1.3.1\n\n### Latest Stable Release, ENJOY!!\r\n> [!NOTE]\r\n> - Bundled with **YTUHD**.\r\n> - Updated Gonerino and YT Headers. \r\n> - if you're signed out you can sign in manually. \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `iSponsorBlock` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - Limited Support for new YT versions.(+21.25.5). 21.24.3 is the latest build that works with extra tweaks.",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa1/YouProExtra_21.24.3_1.3.1.ipa",
+      "size": 120003293,
       "localizedDescription": "YouPro mod. Includes no ads, background playback, downloads, iSponsorBlock, PiP, and more.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
@@ -51,10 +51,10 @@
       "versions": [
         {
           "version": "21.24.3",
-          "date": "2026-08-16",
-          "localizedDescription": "YouTube 21.24.3 | YouProExtra_21.24.3_1.3.1\n\n### Latest Stable Release, ENJOY!!\r\n> [!NOTE]\r\n> - Bundled with **YTUHD**\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YouSlider` `YTSilentVote` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino`\r\n\r\n> [!WARNING]\r\n> - Limited Support for new YT versions.(+21.25.5). 21.24.3 is the latest build that works with extra tweaks.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.24.3_1.3.1.ipa",
-          "size": 119894440,
+          "date": "2026-09-10",
+          "localizedDescription": "YouTube 21.24.3 | YouProExtra_21.24.3_1.3.1\n\n### Latest Stable Release, ENJOY!!\r\n> [!NOTE]\r\n> - Bundled with **YTUHD**.\r\n> - Updated Gonerino and YT Headers. \r\n> - if you're signed out you can sign in manually. \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `iSponsorBlock` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - Limited Support for new YT versions.(+21.25.5). 21.24.3 is the latest build that works with extra tweaks.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa1/YouProExtra_21.24.3_1.3.1.ipa",
+          "size": 120003293,
           "minOSVersion": "16.0"
         }
       ]
