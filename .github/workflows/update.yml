@@ -179,8 +179,9 @@ jobs:
                   return int(m.group(1)) if m else -1
 
               YTLITE_MIN_OS = {
-                  0: "14.0",
-                  1: "15.0",
+                  0: "17.0",
+                  1: "14.0",
+                  2: "15.0",
               }
               YTLITE_MIN_OS_DEFAULT = "16.0"
 
