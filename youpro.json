@@ -14,11 +14,11 @@
       "developerName": "alibusut",
       "subtitle": "YouPro",
       "category": "photo-video",
-      "version": "21.42.4",
-      "versionDate": "2026-10-22",
-      "versionDescription": "YouTube 21.42.4 | YouProExtra_21.42.4_1.3.1\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - **YTUHD** is not included. 4K60HDR is available.\r\n> - if you're signed out you can sign in manually. \r\n> - no iSponsorBlock and YouSlider. (unstable in newer builds)\r\n> - Downloads working partially. depending on hardware codecs. \r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa4/YouProExtra_21.42.4_1.3.1.ipa",
-      "size": 131280986,
+      "version": "21.43.5",
+      "versionDate": "2026-10-27",
+      "versionDescription": "YouTube 21.43.5 | YouProExtra_21.43.5_1.3.1\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - **YTUHD** is not included. 4K60HDR is available.\r\n> - if you're signed out you can sign in manually. \r\n> - no iSponsorBlock and YouSlider. (unstable in newer builds)\r\n> - Downloads working partially. depending on hardware codecs. \r\n> - Liquid Glass Support\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.43.5_1.3.1.ipa",
+      "size": 131707413,
       "localizedDescription": "YouPro mod. Includes no ads, background playback, downloads, iSponsorBlock, PiP, and more.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
@@ -50,11 +50,11 @@
       },
       "versions": [
         {
-          "version": "21.42.4",
-          "date": "2026-10-22",
-          "localizedDescription": "YouTube 21.42.4 | YouProExtra_21.42.4_1.3.1\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - **YTUHD** is not included. 4K60HDR is available.\r\n> - if you're signed out you can sign in manually. \r\n> - no iSponsorBlock and YouSlider. (unstable in newer builds)\r\n> - Downloads working partially. depending on hardware codecs. \r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa4/YouProExtra_21.42.4_1.3.1.ipa",
-          "size": 131280986,
+          "version": "21.43.5",
+          "date": "2026-10-27",
+          "localizedDescription": "YouTube 21.43.5 | YouProExtra_21.43.5_1.3.1\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - **YTUHD** is not included. 4K60HDR is available.\r\n> - if you're signed out you can sign in manually. \r\n> - no iSponsorBlock and YouSlider. (unstable in newer builds)\r\n> - Downloads working partially. depending on hardware codecs. \r\n> - Liquid Glass Support\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.43.5_1.3.1.ipa",
+          "size": 131707413,
           "minOSVersion": "17.0"
         }
       ]
