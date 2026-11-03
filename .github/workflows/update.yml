@@ -80,6 +80,28 @@ jobs:
                       break
               return results
 
+          def get_min_os(yt_version):
+              """Return minOSVersion based on YouTube version.
+              - 19.x → 14.0
+              - 20.x → 15.0
+              - 21.24.x / 21.33.x → 16.0
+              - 21.34+ and newer → 17.0
+              """
+              try:
+                  parts = list(map(int, yt_version.split('.')))
+                  major = parts[0]
+                  minor = parts[1] if len(parts) > 1 else 0
+              except (ValueError, IndexError):
+                  return "17.0"
+
+              if major == 19:
+                  return "14.0"
+              if major == 20:
+                  return "15.0"
+              if major == 21 and minor <= 33:
+                  return "16.0"
+              return "17.0"
+
           all_releases = fetch_all_releases(SOURCE_REPO)
           published = [r for r in all_releases if not r['draft'] and not r['prerelease']]
           ytlite_candidates = [r for r in all_releases if not r['draft']]
@@ -145,7 +167,7 @@ jobs:
               yt_version = matches[0]
 
               ipa_label   = ipa_name.replace('.ipa', '')
-              description = (
+              full_description = (
                   f"YouTube {yt_version} | {ipa_label}\n\n{release_body}"
                   if release_body else
                   f"YouTube {yt_version} | {ipa_label}"
@@ -154,16 +176,17 @@ jobs:
               new_entry = {
                   "version":              yt_version,
                   "date":                 date_str,
-                  "localizedDescription": description,
+                  "localizedDescription": full_description,
                   "downloadURL":          download_url,
                   "size":                 size,
-                  "minOSVersion":         "17.0"
+                  "minOSVersion":         get_min_os(yt_version)
               }
 
               app['versions']           = [new_entry]
               app['version']            = yt_version
               app['versionDate']        = date_str
-              app['versionDescription'] = description
+              app['versionDescription'] = yt_version          # only the version number
+              app['localizedDescription'] = full_description  # full details
               app['downloadURL']        = download_url
               app['size']               = size
 
@@ -178,20 +201,11 @@ jobs:
                   m = re.search(r'ytl-ipa(\d+)', release['tag_name'])
                   return int(m.group(1)) if m else -1
 
-              YTLITE_MIN_OS = {
-                  0: "17.0",
-                  1: "14.0",
-                  2: "15.0",
-              }
-              YTLITE_MIN_OS_DEFAULT = "17.0"
-
               ytlite_releases.sort(key=ytlite_tag_num, reverse=True)
 
               entries = []
               for release in ytlite_releases:
                   tag          = release['tag_name']
-                  tag_num      = ytlite_tag_num(release)
-                  min_os       = YTLITE_MIN_OS.get(tag_num, YTLITE_MIN_OS_DEFAULT)
                   published_at = release.get('published_at', '')
                   date_str     = published_at[:10] if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%d')
                   release_body = (release.get('body') or '').strip()
@@ -215,7 +229,7 @@ jobs:
                   yt_version = matches[0]
 
                   ipa_label   = ipa_name.replace('.ipa', '')
-                  description = (
+                  full_description = (
                       f"YouTube {yt_version} | {ipa_label}\n\n{release_body}"
                       if release_body else
                       f"YouTube {yt_version} | {ipa_label}"
@@ -224,10 +238,10 @@ jobs:
                   entries.append({
                       "version":              yt_version,
                       "date":                 date_str,
-                      "localizedDescription": description,
+                      "localizedDescription": full_description,
                       "downloadURL":          download_url,
                       "size":                 size,
-                      "minOSVersion":         min_os,
+                      "minOSVersion":         get_min_os(yt_version),
                       "_tag":                 tag,
                   })
 
@@ -249,11 +263,12 @@ jobs:
                       for e in entries:
                           e.pop('_tag', None)
 
-                      ytlite_app['versions']           = entries
-                      ytlite_app['version']            = newest['version']
-                      ytlite_app['versionDate']        = newest['date']
-                      ytlite_app['versionDescription'] = newest['localizedDescription']
-                      ytlite_app['downloadURL']        = newest['downloadURL']
+                      ytlite_app['versions']            = entries
+                      ytlite_app['version']             = newest['version']
+                      ytlite_app['versionDate']         = newest['date']
+                      ytlite_app['versionDescription']  = newest['version']          # only version number
+                      ytlite_app['localizedDescription'] = newest['localizedDescription']  # full details
+                      ytlite_app['downloadURL']         = newest['downloadURL']
                       ytlite_app['size']                = newest['size']
 
                       with open(YTLITE_FILE, 'w') as f:
@@ -334,25 +349,26 @@ jobs:
               tweak_version = ytm_version = tag.lstrip('v')
 
           ipa_label   = ipa_name.replace('.ipa', '')
-          description = f"YTMusicUltimate {tweak_version} | YTMusic {ytm_version} | {ipa_label}"
+          full_description = f"YTMusicUltimate {tweak_version} | YTMusic {ytm_version} | {ipa_label}"
           if release_body:
-              description += f"\n\n{release_body}"
+              full_description += f"\n\n{release_body}"
 
           new_entry = {
               "version":              tweak_version,
               "date":                 date_str,
-              "localizedDescription": description,
+              "localizedDescription": full_description,
               "downloadURL":          download_url,
               "size":                 size,
               "minOSVersion":         "17.0"
           }
 
-          ytm_app['versions']           = [new_entry]
-          ytm_app['version']            = tweak_version
-          ytm_app['versionDate']        = date_str
-          ytm_app['versionDescription'] = description
-          ytm_app['downloadURL']        = download_url
-          ytm_app['size']               = size
+          ytm_app['versions']            = [new_entry]
+          ytm_app['version']             = tweak_version
+          ytm_app['versionDate']         = date_str
+          ytm_app['versionDescription']  = tweak_version          # only the version number
+          ytm_app['localizedDescription'] = full_description      # full details
+          ytm_app['downloadURL']         = download_url
+          ytm_app['size']                = size
 
           with open('ytmusic.json', 'w') as f:
               json.dump(ytm_data, f, indent=2, ensure_ascii=False)
