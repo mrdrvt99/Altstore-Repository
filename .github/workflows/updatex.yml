@@ -104,11 +104,11 @@ jobs:
               matches    = re.findall(r'(\d+\.\d+\.\d+)', ipa_name)
               yt_version = matches[0] if matches else "Unknown"
 
-              description = f"[{mod_label}] YouTube {yt_version} | {ipa_name.replace('.ipa', '')}"
-              if release_body:
-                  description += f"\n\n{release_body}"
+              version_description = yt_version
 
-              loc_desc = current.get('localizedDescription', "Enhanced YouTube experience.") if current else "Enhanced YouTube experience."
+              loc_desc = f"[{mod_label}] YouTube {yt_version} | {ipa_name.replace('.ipa', '')}"
+              if release_body:
+                  loc_desc += f"\n\n{release_body}"
 
               new_entry = {
                   "name":                 base_name,
@@ -116,7 +116,7 @@ jobs:
                   "developerName":        dev_name,
                   "version":              yt_version,
                   "versionDate":          date_str,
-                  "versionDescription":   description,
+                  "versionDescription":   version_description,
                   "downloadURL":          download_url,
                   "localizedDescription": loc_desc,
                   "iconURL":              "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
