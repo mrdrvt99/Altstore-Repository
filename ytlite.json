@@ -16,10 +16,10 @@
       "category": "photo-video",
       "version": "21.44.4",
       "versionDate": "2026-11-03",
-      "versionDescription": "YouTube 21.44.4 | YouTubePlus_21.44.4_6.0\n\n### Latest Release, ENJOY!!\r\n\r\n**Cracked by** [@Spy_0G](https://t.me/Spy_0G)\r\n\r\n> [!NOTE]\r\n> - 🔑 No subscription required. \r\n> - ✅ New Downloads manager.\r\n> - 📺 Full 4KHDR support.\r\n> - 📝 [6.0 release notes](https://github.com/dayanch96/YTLite/releases/tag/v6.0)\r\n> - 🫧  Liquid Glass and iPhone Duo support.\r\n>\r\n> - - -\r\n> #### Extra Tweaks: \r\n> - `YouPip` `YTweaks` `Gonerino` `YTABConfig` `YouQuality` `YouChooseQuality` `YouGetCaption` `YTHoldForSpeed` `YTNativeShare`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`\r\n\r\n> [!WARNING]\r\n> -  21.34.3+ builds require iOS 17+ now.",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa8/YouTubePlus_21.44.4_6.0.ipa",
+      "versionDescription": null,
+      "downloadURL": null,
       "size": 151399565,
-      "localizedDescription": "YTLite mod. Includes no ads, background playback, downloads, iSponsorBlock, PiP, and more.",
+      "localizedDescription": null,
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
       "screenshotURLs": [],
@@ -48,48 +48,7 @@
           "NSLocalNetworkUsageDescription": "Used to discover and connect to devices on your local network."
         }
       },
-      "versions": [
-        {
-          "version": "21.44.4",
-          "date": "2026-11-03",
-          "localizedDescription": "YouTube 21.44.4 | YouTubePlus_21.44.4_6.0\n\n### Latest Release, ENJOY!!\r\n\r\n**Cracked by** [@Spy_0G](https://t.me/Spy_0G)\r\n\r\n> [!NOTE]\r\n> - 🔑 No subscription required. \r\n> - ✅ New Downloads manager.\r\n> - 📺 Full 4KHDR support.\r\n> - 📝 [6.0 release notes](https://github.com/dayanch96/YTLite/releases/tag/v6.0)\r\n> - 🫧  Liquid Glass and iPhone Duo support.\r\n>\r\n> - - -\r\n> #### Extra Tweaks: \r\n> - `YouPip` `YTweaks` `Gonerino` `YTABConfig` `YouQuality` `YouChooseQuality` `YouGetCaption` `YTHoldForSpeed` `YTNativeShare`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`\r\n\r\n> [!WARNING]\r\n> -  21.34.3+ builds require iOS 17+ now.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa8/YouTubePlus_21.44.4_6.0.ipa",
-          "size": 151399565,
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "21.33.6",
-          "date": "2026-11-03",
-          "localizedDescription": "YouTube 21.33.6 | YouTubePlus_21.33.6_6.0\n\n### iOS16+ Release, ENJOY!!\r\n\r\n**Cracked by** [@Spy_0G](https://t.me/Spy_0G)\r\n\r\n> [!NOTE]\r\n> - 🔑  No subscription required. \r\n> - ✅ New Downloads manager.\r\n> - 📺 Full 4KHDR support. \r\n> - 📝 [6.0 release notes](https://github.com/dayanch96/YTLite/releases/tag/v6.0) \r\n>\r\n> - - -\r\n> #### Extra Tweaks: \r\n> - `YouPip` `YTweaks` `Gonerino` `YTABConfig` `YouQuality` `YouChooseQuality` `YouGetCaption` `YTHoldForSpeed` `YTNativeShare`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa6/YouTubePlus_21.33.6_6.0.ipa",
-          "size": 145527956,
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "21.24.3",
-          "date": "2026-09-09",
-          "localizedDescription": "YouTube 21.24.3 | YouTubePlus_21.24.3_5.2.2\n\n### Latest Stable Release, ENJOY!!\r\n##### Cracked by [zarzelworkshop](https://t.me/zarzelworkshop)\r\n\r\n> [!NOTE]\r\n> - 🔑  no subscription required\r\n> - ✅ Working Download Manager, switch to overlay button before downloading.\r\n> - 🎥 Bundled with **YTUHD**. it is broken in +21.25.5 versions as of now. max resolution is 1080p60. devices with native AV1 can still see 4K.\r\n> - 🔧 Updated Gonerino and YT Headers\r\n> - Enable \"**Both** Download button placement\" under Downloading setting\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino`  `VolumeBoostYT` `PleaseDontStopTheMusic`\r\n\r\n> [!WARNING]\r\n> - Versions **+21.25.5 and newer** are **not recommended** right now.  \r\n> - Extra tweaks that are bundled with main tweak are currently unstable on newer versions.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa3/YouTubePlus_21.24.3_5.2.2.ipa",
-          "size": 129031075,
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "20.21.6",
-          "date": "2026-09-10",
-          "localizedDescription": "YouTube 20.21.6 | YouTubePlus_20.21.6_5.2.2\n\n### iOS15+ build, ENJOY!!\r\n\r\n**Cracked by** [zarzelworkshop](https://t.me/zarzelworkshop)\r\n\r\n> [!NOTE]\r\n> - VolumeBoostYT is not included. \r\n> - YTUHD has more options than latest releases. 4K60HDR full support.\r\n> - to edit gonerino settings sideload a newer yt version before reverting to v20\r\n>\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `PleaseDontStopTheMusic`  \r\n\r\n> [!WARNING]\r\n> -  build may break in future when YT update backend.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa2/YouTubePlus_20.21.6_5.2.2.ipa",
-          "size": 115566999,
-          "minOSVersion": "15.0"
-        },
-        {
-          "version": "19.20.2",
-          "date": "2026-09-10",
-          "localizedDescription": "YouTube 19.20.2 | YouTubePlus_19.20.2_5.2.2\n\n### iOS14+ build, ENJOY!!\r\n\r\n**Cracked by** [zarzelworkshop](https://t.me/zarzelworkshop)\r\n\r\n> [!NOTE]\r\n> - VolumeBoostYT, Gonerino and YTweaks are not included. \r\n> - YTUHD has more options than latest releases. 4K60HDR full support.\r\n> - Full reinstall is recommended if you're downgrading from YT v21 to v19. \r\n>\r\n> - - -\r\n> #### Extra Tweaks: \r\n> - `YouPip` `YTUHD` `YTABConfig` `YouQuality` `YouChooseQuality` `YouGetCaption` `YTHoldForSpeed`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `PleaseDontStopTheMusic` \r\n\r\n> [!WARNING]\r\n> -  build may break in future when YT update backend.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytl-ipa1/YouTubePlus_19.20.2_5.2.2.ipa",
-          "size": 106247621,
-          "minOSVersion": "14.0"
-        }
-      ]
+      "versions": []
     }
   ],
   "news": []
