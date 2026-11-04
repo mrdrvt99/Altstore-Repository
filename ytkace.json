@@ -56,6 +56,14 @@
           "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa2/YTKACE_21.44.4_1.1.5.ipa",
           "size": 135127142,
           "minOSVersion": "17.0"
+        },
+        {
+          "version": "21.33.6",
+          "date": "2026-11-04",
+          "localizedDescription": "YouTube 21.33.6 | YTKACE_21.33.6_1.1.5\n\n### Latest Release, ENJOY!!\r\n#### A YouTube enhancer for iOS with downloads, iSponsorBlock, DeArrow, player controls, and interface customization.\r\n> [!NOTE]\r\n> - 📝[v1.1.5 release notes](https://github.com/itzzace/ytkace/releases/tag/v1.1.5)\r\n> - 🔽Set Download Button to Both in settings to enable Downloads. \r\n>\r\n> - - -\r\n>\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT` `Gonerino`",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa1/YTKACE_21.33.6_1.1.5.ipa",
+          "size": 129255371,
+          "minOSVersion": "16.0"
         }
       ]
     }
