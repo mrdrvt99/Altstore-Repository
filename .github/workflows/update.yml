@@ -2,7 +2,7 @@ name: Check for Updates
 
 on:
   schedule:
-    - cron: '0 */13 * * *'
+    - cron: '0 */18 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -34,21 +34,22 @@ jobs:
           GH_TOKEN    = os.environ.get('GH_TOKEN', '')
 
           TAG_MAP = {
-              'youmod-ipa':                'youmod',
-              'youproextra-ipa':           'youpro',
-              'ytkp-ipa':                  'ytkp',
-              'ytkace-ipa':                'ytkace',
+              'youmod-ipa':      'youmod',
+              'youproextra-ipa': 'youpro',
+              'ytkp-ipa':        'ytkp',
           }
 
           FILES = {
               'ytkp':   'ytkp.json',
               'youpro': 'youpro.json',
               'youmod': 'youmod.json',
-              'ytkace': 'ytkace.json',
           }
 
-          YTLITE_TAG_PREFIX = 'ytl-ipa'
-          YTLITE_FILE       = 'ytlite.json'
+          # Multi-version apps (all matching releases are kept, newest first)
+          MULTI_VERSION = {
+              'ytl-ipa':    'ytlite.json',
+              'ytkace-ipa': 'ytkace.json',
+          }
 
           def fetch_json(url):
               headers = {'User-Agent': 'github-actions/altstore-sync'}
@@ -65,9 +66,6 @@ jobs:
                   sys.exit(1)
 
           def fetch_all_releases(repo, max_pages=10):
-              """Paginate through releases so older tags (e.g. ytl-ipa0/1)
-              aren't missed just because newer tags from other mods pushed
-              them off the first page."""
               results = []
               for page in range(1, max_pages + 1):
                   batch = fetch_json(
@@ -81,19 +79,12 @@ jobs:
               return results
 
           def get_min_os(yt_version):
-              """Return minOSVersion based on YouTube version.
-              - 19.x → 14.0
-              - 20.x → 15.0
-              - 21.24.x / 21.33.x → 16.0
-              - 21.34+ and newer → 17.0
-              """
               try:
                   parts = list(map(int, yt_version.split('.')))
                   major = parts[0]
                   minor = parts[1] if len(parts) > 1 else 0
               except (ValueError, IndexError):
                   return "17.0"
-
               if major == 19:
                   return "14.0"
               if major == 20:
@@ -102,35 +93,38 @@ jobs:
                   return "16.0"
               return "17.0"
 
+          def tag_num(prefix, release):
+              m = re.search(rf'{re.escape(prefix)}(\d+)', release['tag_name'])
+              return int(m.group(1)) if m else -1
+
           all_releases = fetch_all_releases(SOURCE_REPO)
           published = [r for r in all_releases if not r['draft'] and not r['prerelease']]
-          ytlite_candidates = [r for r in all_releases if not r['draft']]
+          non_draft = [r for r in all_releases if not r['draft']]
 
           best = {}
-          ytlite_releases = []
-          for release in ytlite_candidates:
+          multi_releases = {prefix: [] for prefix in MULTI_VERSION}
+
+          for release in non_draft:
               tag = release['tag_name']
-              if tag.startswith(YTLITE_TAG_PREFIX):
-                  ytlite_releases.append(release)
+              for prefix in MULTI_VERSION:
+                  if tag.startswith(prefix):
+                      multi_releases[prefix].append(release)
+                      break
 
           for release in published:
               tag = release['tag_name']
               if tag.startswith('youproextra-noytlite-ipa'):
                   continue
-              if tag.startswith(YTLITE_TAG_PREFIX):
+              if any(tag.startswith(p) for p in MULTI_VERSION):
                   continue
               for prefix, key in TAG_MAP.items():
                   if tag.startswith(prefix) and key not in best:
                       best[key] = release
                       break
 
-          if not best and not ytlite_releases:
+          if not best and not any(multi_releases.values()):
               print("No matching releases found.")
               sys.exit(0)
-
-          if ytlite_releases:
-              found_tags = sorted(r['tag_name'] for r in ytlite_releases)
-              print(f"Found {len(ytlite_releases)} ytl-ipa release(s): {found_tags}")
 
           for app_key, release in best.items():
               tag          = release['tag_name']
@@ -166,7 +160,7 @@ jobs:
                   continue
               yt_version = matches[0]
 
-              ipa_label   = ipa_name.replace('.ipa', '')
+              ipa_label = ipa_name.replace('.ipa', '')
               full_description = (
                   f"YouTube {yt_version} | {ipa_label}\n\n{release_body}"
                   if release_body else
@@ -182,13 +176,13 @@ jobs:
                   "minOSVersion":         get_min_os(yt_version)
               }
 
-              app['versions']           = [new_entry]
-              app['version']            = yt_version
-              app['versionDate']        = date_str
-              app['versionDescription'] = yt_version          # only the version number
-              app['localizedDescription'] = full_description  # full details
-              app['downloadURL']        = download_url
-              app['size']               = size
+              app['versions']            = [new_entry]
+              app['version']             = yt_version
+              app['versionDate']         = date_str
+              app['versionDescription']  = yt_version
+              app['localizedDescription'] = full_description
+              app['downloadURL']         = download_url
+              app['size']                = size
 
               with open(filename, 'w') as f:
                   json.dump(source, f, indent=2, ensure_ascii=False)
@@ -196,15 +190,18 @@ jobs:
 
               print(f"Updated {filename}: '{app['name']}' → YouTube {yt_version} ({tag})")
 
-          if ytlite_releases:
-              def ytlite_tag_num(release):
-                  m = re.search(r'ytl-ipa(\d+)', release['tag_name'])
-                  return int(m.group(1)) if m else -1
+          for prefix, filename in MULTI_VERSION.items():
+              releases = multi_releases.get(prefix, [])
+              if not releases:
+                  continue
 
-              ytlite_releases.sort(key=ytlite_tag_num, reverse=True)
+              found_tags = sorted(r['tag_name'] for r in releases)
+              print(f"Found {len(releases)} {prefix} release(s): {found_tags}")
+
+              releases.sort(key=lambda r: tag_num(prefix, r), reverse=True)
 
               entries = []
-              for release in ytlite_releases:
+              for release in releases:
                   tag          = release['tag_name']
                   published_at = release.get('published_at', '')
                   date_str     = published_at[:10] if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%d')
@@ -228,7 +225,7 @@ jobs:
                       continue
                   yt_version = matches[0]
 
-                  ipa_label   = ipa_name.replace('.ipa', '')
+                  ipa_label = ipa_name.replace('.ipa', '')
                   full_description = (
                       f"YouTube {yt_version} | {ipa_label}\n\n{release_body}"
                       if release_body else
@@ -242,40 +239,38 @@ jobs:
                       "downloadURL":          download_url,
                       "size":                 size,
                       "minOSVersion":         get_min_os(yt_version),
-                      "_tag":                 tag,
                   })
 
               if not entries:
-                  print("No usable ytl-ipa releases found — skipping ytlite.json.")
-              else:
-                  with open(YTLITE_FILE, 'r') as f:
-                      ytlite_source = json.load(f)
+                  print(f"No usable {prefix} releases found — skipping {filename}.")
+                  continue
 
-                  ytlite_app = ytlite_source['apps'][0]
+              with open(filename, 'r') as f:
+                  source = json.load(f)
 
-                  existing_urls = [v.get('downloadURL') for v in ytlite_app.get('versions', [])]
-                  new_urls      = [e['downloadURL'] for e in entries]
+              app = source['apps'][0]
 
-                  if existing_urls == new_urls:
-                      print(f"{YTLITE_FILE} already up to date ({len(entries)} versions).")
-                  else:
-                      newest = entries[0]
-                      for e in entries:
-                          e.pop('_tag', None)
+              existing_urls = [v.get('downloadURL') for v in app.get('versions', [])]
+              new_urls      = [e['downloadURL'] for e in entries]
 
-                      ytlite_app['versions']            = entries
-                      ytlite_app['version']             = newest['version']
-                      ytlite_app['versionDate']         = newest['date']
-                      ytlite_app['versionDescription']  = newest['version']          # only version number
-                      ytlite_app['localizedDescription'] = newest['localizedDescription']  # full details
-                      ytlite_app['downloadURL']         = newest['downloadURL']
-                      ytlite_app['size']                = newest['size']
+              if existing_urls == new_urls:
+                  print(f"{filename} already up to date ({len(entries)} versions).")
+                  continue
 
-                      with open(YTLITE_FILE, 'w') as f:
-                          json.dump(ytlite_source, f, indent=2, ensure_ascii=False)
-                          f.write('\n')
+              newest = entries[0]
+              app['versions']             = entries
+              app['version']              = newest['version']
+              app['versionDate']          = newest['date']
+              app['versionDescription']   = newest['version']
+              app['localizedDescription'] = newest['localizedDescription']
+              app['downloadURL']          = newest['downloadURL']
+              app['size']                 = newest['size']
 
-                      print(f"Updated {YTLITE_FILE}: {len(entries)} versions kept (newest: YouTube {newest['version']})")
+              with open(filename, 'w') as f:
+                  json.dump(source, f, indent=2, ensure_ascii=False)
+                  f.write('\n')
+
+              print(f"Updated {filename}: {len(entries)} versions kept (newest: YouTube {newest['version']})")
           PYEOF
 
       - name: Fetch YTMusicUltimate Latest Release
@@ -362,13 +357,13 @@ jobs:
               "minOSVersion":         "17.0"
           }
 
-          ytm_app['versions']            = [new_entry]
-          ytm_app['version']             = tweak_version
-          ytm_app['versionDate']         = date_str
-          ytm_app['versionDescription']  = tweak_version          # only the version number
-          ytm_app['localizedDescription'] = full_description      # full details
-          ytm_app['downloadURL']         = download_url
-          ytm_app['size']                = size
+          ytm_app['versions']             = [new_entry]
+          ytm_app['version']              = tweak_version
+          ytm_app['versionDate']          = date_str
+          ytm_app['versionDescription']   = tweak_version
+          ytm_app['localizedDescription'] = full_description
+          ytm_app['downloadURL']          = download_url
+          ytm_app['size']                 = size
 
           with open('ytmusic.json', 'w') as f:
               json.dump(ytm_data, f, indent=2, ensure_ascii=False)
