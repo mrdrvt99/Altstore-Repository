@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 */18 * * *'
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force full rebuild of all source files'
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: sync-altstore
@@ -25,6 +31,7 @@ jobs:
       - name: Fetch YouProEXTRA Latest Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE: ${{ github.event.inputs.force || 'false' }}
         run: |
           python3 << 'PYEOF'
           import json, urllib.request, urllib.error, os, re, sys
@@ -32,6 +39,7 @@ jobs:
 
           SOURCE_REPO = 'mrdrvt99/YouProEXTRA'
           GH_TOKEN    = os.environ.get('GH_TOKEN', '')
+          FORCE       = os.environ.get('FORCE', 'false').lower() == 'true'
 
           TAG_MAP = {
               'youmod-ipa':      'youmod',
@@ -50,11 +58,19 @@ jobs:
               'ytkace-ipa': 'ytkace.json',
           }
 
+          IGNORE_PREFIXES = [
+              'youproextra-noytlite-ipa',
+          ]
+
           FIXED_YTL_VERSIONS = {
               1: "19.20.2-5.2.2",
               2: "20.21.6-5.2.2",
               3: "21.24.3-5.2.2",
           }
+
+          updated = []
+          skipped = []
+          failed  = []
 
           def fetch_json(url):
               headers = {'User-Agent': 'github-actions/altstore-sync'}
@@ -111,6 +127,8 @@ jobs:
 
           for release in non_draft:
               tag = release['tag_name']
+              if any(tag.startswith(p) for p in IGNORE_PREFIXES):
+                  continue
               for prefix in MULTI_VERSION:
                   if tag.startswith(prefix):
                       multi_releases[prefix].append(release)
@@ -118,7 +136,7 @@ jobs:
 
           for release in published:
               tag = release['tag_name']
-              if tag.startswith('youproextra-noytlite-ipa'):
+              if any(tag.startswith(p) for p in IGNORE_PREFIXES):
                   continue
               if any(tag.startswith(p) for p in MULTI_VERSION):
                   continue
@@ -143,6 +161,7 @@ jobs:
               )
               if not ipa_asset:
                   print(f"No .ipa asset for {tag} — skipping.")
+                  failed.append(f"{app_key} ({tag}): no ipa")
                   continue
 
               download_url = ipa_asset['browser_download_url']
@@ -155,15 +174,17 @@ jobs:
 
               app = source['apps'][0]
 
-              if app.get('downloadURL') == download_url:
-                  print(f"{filename} already up to date.")
-                  continue
-
               matches = re.findall(r'(\d+\.\d+\.\d+)', ipa_name)
               if not matches:
                   print(f"::warning::Could not parse version from '{ipa_name}' — skipping.")
+                  failed.append(f"{filename}: parse failed")
                   continue
               yt_version = matches[0]
+
+              if not FORCE and app.get('downloadURL') == download_url and app.get('version') == yt_version:
+                  print(f"{filename} already up to date.")
+                  skipped.append(filename)
+                  continue
 
               ipa_label = ipa_name.replace('.ipa', '')
               full_description = (
@@ -181,19 +202,20 @@ jobs:
                   "minOSVersion":         get_min_os(yt_version)
               }
 
-              app['versions']            = [new_entry]
-              app['version']             = yt_version
-              app['versionDate']         = date_str
-              app['versionDescription']  = yt_version
+              app['versions']             = [new_entry]
+              app['version']              = yt_version
+              app['versionDate']          = date_str
+              app['versionDescription']   = yt_version
               app['localizedDescription'] = full_description
-              app['downloadURL']         = download_url
-              app['size']                = size
+              app['downloadURL']          = download_url
+              app['size']                 = size
 
               with open(filename, 'w') as f:
                   json.dump(source, f, indent=2, ensure_ascii=False)
                   f.write('\n')
 
               print(f"Updated {filename}: '{app['name']}' → YouTube {yt_version} ({tag})")
+              updated.append(filename)
 
           for prefix, filename in MULTI_VERSION.items():
               releases = multi_releases.get(prefix, [])
@@ -218,6 +240,7 @@ jobs:
                   )
                   if not ipa_asset:
                       print(f"No .ipa asset for {tag} — skipping.")
+                      failed.append(f"{prefix} {tag}: no ipa")
                       continue
 
                   download_url = ipa_asset['browser_download_url']
@@ -227,6 +250,7 @@ jobs:
                   matches = re.findall(r'(\d+\.\d+\.\d+)', ipa_name)
                   if not matches:
                       print(f"::warning::Could not parse version from '{ipa_name}' — skipping.")
+                      failed.append(f"{prefix} {tag}: parse failed")
                       continue
                   yt_version = matches[0]
 
@@ -254,6 +278,7 @@ jobs:
 
               if not entries:
                   print(f"No usable {prefix} releases found — skipping {filename}.")
+                  skipped.append(filename)
                   continue
 
               with open(filename, 'r') as f:
@@ -261,11 +286,14 @@ jobs:
 
               app = source['apps'][0]
 
-              existing_urls = [v.get('downloadURL') for v in app.get('versions', [])]
-              new_urls      = [e['downloadURL'] for e in entries]
+              existing_urls     = [v.get('downloadURL') for v in app.get('versions', [])]
+              existing_versions = [v.get('version') for v in app.get('versions', [])]
+              new_urls          = [e['downloadURL'] for e in entries]
+              new_versions      = [e['version'] for e in entries]
 
-              if existing_urls == new_urls:
+              if not FORCE and existing_urls == new_urls and existing_versions == new_versions:
                   print(f"{filename} already up to date ({len(entries)} versions).")
+                  skipped.append(filename)
                   continue
 
               newest = entries[0]
@@ -281,12 +309,21 @@ jobs:
                   json.dump(source, f, indent=2, ensure_ascii=False)
                   f.write('\n')
 
-              print(f"Updated {filename}: {len(entries)} versions kept (newest: YouTube {newest['version']})")
+              print(f"Updated {filename}: {len(entries)} versions kept (newest: {newest['version']})")
+              updated.append(filename)
+
+          print("\n=== SUMMARY ===")
+          print(f"Updated : {updated or 'none'}")
+          print(f"Skipped : {skipped or 'none'}")
+          print(f"Failed  : {failed or 'none'}")
+          if FORCE:
+              print("(force mode was enabled)")
           PYEOF
 
       - name: Fetch YTMusicUltimate Latest Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE: ${{ github.event.inputs.force || 'false' }}
         run: |
           python3 << 'PYEOF'
           import json, urllib.request, urllib.error, os, re, sys
@@ -294,6 +331,7 @@ jobs:
 
           YTM_SOURCE_REPO = 'mrdrvt99/YTMusicUltimate'
           GH_TOKEN        = os.environ.get('GH_TOKEN', '')
+          FORCE           = os.environ.get('FORCE', 'false').lower() == 'true'
 
           def fetch_json(url):
               headers = {'User-Agent': 'github-actions/altstore-sync'}
@@ -341,10 +379,6 @@ jobs:
 
           ytm_app = ytm_data['apps'][0]
 
-          if ytm_app.get('downloadURL') == download_url:
-              print(f"ytmusic.json already up to date: {download_url}")
-              sys.exit(0)
-
           matches = re.findall(r'(\d+\.\d+(?:\.\d+)?)', ipa_name)
           if len(matches) >= 2:
               tweak_version = matches[0]
@@ -353,6 +387,10 @@ jobs:
               tweak_version = ytm_version = matches[0]
           else:
               tweak_version = ytm_version = tag.lstrip('v')
+
+          if not FORCE and ytm_app.get('downloadURL') == download_url and ytm_app.get('version') == tweak_version:
+              print(f"ytmusic.json already up to date: {download_url}")
+              sys.exit(0)
 
           ipa_label   = ipa_name.replace('.ipa', '')
           full_description = f"YTMusicUltimate {tweak_version} | YTMusic {ytm_version} | {ipa_label}"
