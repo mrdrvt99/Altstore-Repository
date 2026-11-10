@@ -31,7 +31,7 @@ jobs:
       - name: Fetch latest releases and update apps.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FORCE: ${{ github.event.inputs.force || 'false' }}
+          FORCE: ${{ github.event.inputs.force == 'true' && 'true' || 'false' }}
         run: |
           python3 << 'PYEOF'
           import json, urllib.request, urllib.error, os, re, sys
@@ -210,7 +210,7 @@ jobs:
                           "name":                 base_name,
                           "bundleIdentifier":     "com.google.ios.youtubemusic",
                           "developerName":        "mrdrvt99",
-                          "version":              ytm_version,          # ← YTMusic app version (e.g. 9.45)
+                          "version":              ytm_version,
                           "versionDate":          date_str,
                           "versionDescription":   ytm_version,
                           "downloadURL":          download_url,
