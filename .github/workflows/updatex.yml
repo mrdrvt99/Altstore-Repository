@@ -2,8 +2,14 @@ name: Check for Updates AIO
 
 on:
   schedule:
-    - cron: '0 */13 * * *'
+    - cron: '0 */18 * * *'
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force full rebuild of apps.json'
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: sync-altstore-aio
@@ -22,24 +28,45 @@ jobs:
         with:
           ref: main
 
-      - name: Fetch YouProEXTRA Latest Release and Update apps.json
+      - name: Fetch latest releases and update apps.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE: ${{ github.event.inputs.force || 'false' }}
         run: |
           python3 << 'PYEOF'
           import json, urllib.request, urllib.error, os, re, sys
           from datetime import datetime, timezone
 
-          SOURCE_REPO = 'mrdrvt99/YouProEXTRA'
-          GH_TOKEN    = os.environ.get('GH_TOKEN', '')
+          GH_TOKEN = os.environ.get('GH_TOKEN', '')
+          FORCE    = os.environ.get('FORCE', 'false').lower() == 'true'
+
+          YT_REPO  = 'mrdrvt99/YouProEXTRA'
+          YTM_REPO = 'mrdrvt99/YTMusicUltimate'
 
           TAG_TO_INFO = {
-              'ytl-ipa':                   ("YoutubePlus (YTLite)",  "YTLite",       "dayanch96"),
-              'ytkp-ipa':                  ("YTKillerPlus",          "YTKillerPlus", "iKarwan"),
-              'ytkace-ipa':                ("YTKACE",                "YTKACE",       "itzzace0"),
-              'youproextra-ipa':           ("YouPro",                "YouProExtra",  "alibusut"),
-              'youmod-ipa':                ("YouMod",                "YouMod",       "Tonwalter888"),
+              'ytl-ipa':         ("YoutubePlus (YTLite)", "YTLite",       "dayanch96"),
+              'ytkp-ipa':        ("YTKillerPlus",         "YTKillerPlus", "iKarwan"),
+              'ytkace-ipa':      ("YTKACE",               "YTKACE",       "itzzace0"),
+              'youproextra-ipa': ("YouPro",               "YouProExtra",  "alibusut"),
+              'youmod-ipa':      ("YouMod",               "YouMod",       "Tonwalter888"),
           }
+
+          IGNORE_PREFIXES = [
+              'youproextra-noytlite-ipa',
+          ]
+
+          ORDER = [
+              "YoutubePlus (YTLite)",
+              "YTKillerPlus",
+              "YTKACE",
+              "YouPro",
+              "YouMod",
+              "YTMusicUltimate",
+          ]
+
+          updated = []
+          skipped = []
+          failed  = []
 
           def fetch_json(url):
               headers = {'User-Agent': 'github-actions/altstore-sync'}
@@ -49,40 +76,55 @@ jobs:
               try:
                   with urllib.request.urlopen(req, timeout=30) as resp:
                       return json.loads(resp.read().decode())
-              except Exception as e:
-                  print(f"::error::API request failed: {e}")
+              except urllib.error.URLError as e:
+                  msg  = e.reason if hasattr(e, 'reason') else str(e)
+                  code = e.code   if hasattr(e, 'code')   else 'N/A'
+                  print(f"::error::API request failed (HTTP {code}): {msg}")
                   sys.exit(1)
 
-          all_releases = fetch_json(
-              f'https://api.github.com/repos/{SOURCE_REPO}/releases?per_page=20'
-          )
-          published = [r for r in all_releases if not r['draft'] and not r['prerelease']]
+          def fetch_all_releases(repo, max_pages=5):
+              results = []
+              for page in range(1, max_pages + 1):
+                  batch = fetch_json(
+                      f'https://api.github.com/repos/{repo}/releases?per_page=100&page={page}'
+                  )
+                  if not batch:
+                      break
+                  results.extend(batch)
+                  if len(batch) < 100:
+                      break
+              return results
 
-          best = {}
-          for release in published:
+          yt_releases = fetch_all_releases(YT_REPO)
+          published_yt = [r for r in yt_releases if not r['draft'] and not r['prerelease']]
+
+          best_yt = {}
+          for release in published_yt:
               tag = release['tag_name']
-              if tag.startswith('youproextra-noytlite-ipa'):
+              if any(tag.startswith(p) for p in IGNORE_PREFIXES):
                   continue
               for prefix in TAG_TO_INFO:
-                  if tag.startswith(prefix) and prefix not in best:
-                      best[prefix] = release
+                  if tag.startswith(prefix) and prefix not in best_yt:
+                      best_yt[prefix] = release
                       break
 
-          if not best:
-              print("No matching releases found.")
-              sys.exit(0)
+          ytm_releases = fetch_all_releases(YTM_REPO, max_pages=2)
+          ytm_release = next(
+              (r for r in ytm_releases if not r['draft'] and not r['prerelease']),
+              None
+          )
 
           with open('apps.json', 'r') as f:
               data = json.load(f)
 
-          order = ["YoutubePlus (YTLite)", "YTKillerPlus", "YTKACE", "YouPro", "YouMod"]
+          all_by_name = {a['name']: a for a in data.get('apps', [])}
 
-          for matched_prefix, release in best.items():
-              tag                          = release['tag_name']
+          for matched_prefix, release in best_yt.items():
+              tag = release['tag_name']
               base_name, mod_label, dev_name = TAG_TO_INFO[matched_prefix]
-              published_at               = release.get('published_at') or datetime.now(timezone.utc).isoformat()
-              date_str                   = published_at[:19] + "+03:00"
-              release_body               = (release.get('body') or '').strip()
+              published_at = release.get('published_at') or datetime.now(timezone.utc).isoformat()
+              date_str = published_at[:19] + "Z"
+              release_body = (release.get('body') or '').strip()
 
               ipa_asset = next(
                   (a for a in release.get('assets', []) if a['name'].endswith('.ipa')),
@@ -90,21 +132,21 @@ jobs:
               )
               if not ipa_asset:
                   print(f"No .ipa asset for {tag} — skipping.")
+                  failed.append(f"{base_name} ({tag})")
                   continue
 
               download_url = ipa_asset['browser_download_url']
-              size         = ipa_asset['size']
-              ipa_name     = ipa_asset['name']
+              size = ipa_asset['size']
+              ipa_name = ipa_asset['name']
 
-              current = next((a for a in data['apps'] if a['name'] == base_name), None)
-              if current and current.get('downloadURL') == download_url:
-                  print(f"apps.json already up to date for {base_name}.")
-                  continue
-
-              matches    = re.findall(r'(\d+\.\d+\.\d+)', ipa_name)
+              matches = re.findall(r'(\d+\.\d+\.\d+)', ipa_name)
               yt_version = matches[0] if matches else "Unknown"
 
-              version_description = yt_version
+              current = all_by_name.get(base_name)
+              if not FORCE and current and current.get('downloadURL') == download_url and current.get('version') == yt_version:
+                  print(f"{base_name} already up to date.")
+                  skipped.append(base_name)
+                  continue
 
               loc_desc = f"[{mod_label}] YouTube {yt_version} | {ipa_name.replace('.ipa', '')}"
               if release_body:
@@ -116,7 +158,7 @@ jobs:
                   "developerName":        dev_name,
                   "version":              yt_version,
                   "versionDate":          date_str,
-                  "versionDescription":   version_description,
+                  "versionDescription":   yt_version,
                   "downloadURL":          download_url,
                   "localizedDescription": loc_desc,
                   "iconURL":              "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
@@ -126,15 +168,82 @@ jobs:
                   "type":                 1
               }
 
-              all_by_name          = {a['name']: a for a in data['apps']}
               all_by_name[base_name] = new_entry
-              data['apps']         = [all_by_name[n] for n in order if n in all_by_name]
+              print(f"Updated {base_name} → YouTube {yt_version} ({tag})")
+              updated.append(base_name)
 
-              print(f"Updated apps.json: {base_name} → YouTube {yt_version} ({tag})")
+          if ytm_release:
+              tag = ytm_release['tag_name']
+              published_at = ytm_release.get('published_at') or datetime.now(timezone.utc).isoformat()
+              date_str = published_at[:19] + "Z"
+              release_body = (ytm_release.get('body') or '').strip()
+
+              ipa_asset = next(
+                  (a for a in ytm_release.get('assets', []) if a['name'].endswith('.ipa')),
+                  None
+              )
+              if ipa_asset:
+                  download_url = ipa_asset['browser_download_url']
+                  size = ipa_asset['size']
+                  ipa_name = ipa_asset['name']
+
+                  matches = re.findall(r'(\d+\.\d+(?:\.\d+)?)', ipa_name)
+                  if len(matches) >= 2:
+                      tweak_version = matches[0]
+                      ytm_version = matches[-1]
+                  elif len(matches) == 1:
+                      tweak_version = ytm_version = matches[0]
+                  else:
+                      tweak_version = ytm_version = tag.lstrip('v')
+
+                  base_name = "YTMusicUltimate"
+                  current = all_by_name.get(base_name)
+                  if not FORCE and current and current.get('downloadURL') == download_url and current.get('version') == ytm_version:
+                      print(f"{base_name} already up to date.")
+                      skipped.append(base_name)
+                  else:
+                      loc_desc = f"YTMusicUltimate {tweak_version} | YTMusic {ytm_version} | {ipa_name.replace('.ipa', '')}"
+                      if release_body:
+                          loc_desc += f"\n\n{release_body}"
+
+                      new_entry = {
+                          "name":                 base_name,
+                          "bundleIdentifier":     "com.google.ios.youtubemusic",
+                          "developerName":        "mrdrvt99",
+                          "version":              ytm_version,          # ← YTMusic app version (e.g. 9.45)
+                          "versionDate":          date_str,
+                          "versionDescription":   ytm_version,
+                          "downloadURL":          download_url,
+                          "localizedDescription": loc_desc,
+                          "iconURL":              "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YTMusic.png",
+                          "tintColor":            "FF0000",
+                          "isLanZouCloud":        0,
+                          "size":                 size,
+                          "type":                 1
+                      }
+
+                      all_by_name[base_name] = new_entry
+                      print(f"Updated {base_name} → YTMusic {ytm_version} ({tag})")
+                      updated.append(base_name)
+              else:
+                  print("No .ipa asset for YTMusicUltimate — skipping.")
+                  failed.append("YTMusicUltimate: no ipa")
+          else:
+              print("No published YTMusicUltimate release found.")
+              failed.append("YTMusicUltimate: no release")
+
+          data['apps'] = [all_by_name[n] for n in ORDER if n in all_by_name]
 
           with open('apps.json', 'w') as f:
               json.dump(data, f, indent=2, ensure_ascii=False)
               f.write('\n')
+
+          print("\n=== SUMMARY ===")
+          print(f"Updated : {updated or 'none'}")
+          print(f"Skipped : {skipped or 'none'}")
+          print(f"Failed  : {failed or 'none'}")
+          if FORCE:
+              print("(force mode was enabled)")
           PYEOF
 
       - name: Commit and Push apps.json
@@ -145,7 +254,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore(altstore): sync latest YouProEXTRA release"
+            git commit -m "chore(altstore): sync latest YouProEXTRA & YTMusicUltimate"
             git pull --rebase
             git push
             echo "Changes committed and pushed."
