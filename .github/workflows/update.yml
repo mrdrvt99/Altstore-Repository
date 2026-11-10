@@ -45,10 +45,15 @@ jobs:
               'youmod': 'youmod.json',
           }
 
-          # Multi-version apps (all matching releases are kept, newest first)
           MULTI_VERSION = {
               'ytl-ipa':    'ytlite.json',
               'ytkace-ipa': 'ytkace.json',
+          }
+
+          FIXED_YTL_VERSIONS = {
+              1: "19.20.2-5.2.2",
+              2: "20.21.6-5.2.2",
+              3: "21.24.3-5.2.2",
           }
 
           def fetch_json(url):
@@ -225,6 +230,12 @@ jobs:
                       continue
                   yt_version = matches[0]
 
+                  version_field = yt_version
+                  if prefix == 'ytl-ipa':
+                      num = tag_num(prefix, release)
+                      if num in FIXED_YTL_VERSIONS:
+                          version_field = FIXED_YTL_VERSIONS[num]
+
                   ipa_label = ipa_name.replace('.ipa', '')
                   full_description = (
                       f"YouTube {yt_version} | {ipa_label}\n\n{release_body}"
@@ -233,7 +244,7 @@ jobs:
                   )
 
                   entries.append({
-                      "version":              yt_version,
+                      "version":              version_field,
                       "date":                 date_str,
                       "localizedDescription": full_description,
                       "downloadURL":          download_url,
