@@ -15,7 +15,7 @@
       "subtitle": "YouMod",
       "category": "photo-video",
       "version": "21.45.4",
-      "versionDate": "2026-11-08",
+      "versionDate": "2026-11-08T21:11:08Z",
       "versionDescription": "21.45.4",
       "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa2/YouMod_21.45.4_2.0.0.ipa",
       "size": 133432677,
@@ -51,7 +51,7 @@
       "versions": [
         {
           "version": "21.45.4",
-          "date": "2026-11-08",
+          "date": "2026-11-08T21:11:08Z",
           "localizedDescription": "YouTube 21.45.4 | YouMod_21.45.4_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - [v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - no standalone iSponsorBlock. (unstable in newer builds)\r\n> - Liquid Glass Support\r\n> - Restart app after first launch\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` `VolumeBoostYT` \r\n\r\n> [!WARNING]\r\n> - Extra tweaks that are bundled may be unstable on newer versions.\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
           "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa2/YouMod_21.45.4_2.0.0.ipa",
           "size": 133432677,

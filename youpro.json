@@ -15,7 +15,7 @@
       "subtitle": "YouPro",
       "category": "photo-video",
       "version": "21.45.4",
-      "versionDate": "2026-11-08",
+      "versionDate": "2026-11-08T21:14:40Z",
       "versionDescription": "21.45.4",
       "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.45.4_1.3.1.ipa",
       "size": 133320959,
@@ -51,7 +51,7 @@
       "versions": [
         {
           "version": "21.45.4",
-          "date": "2026-11-08",
+          "date": "2026-11-08T21:14:40Z",
           "localizedDescription": "YouTube 21.45.4 | YouProExtra_21.45.4_1.3.1\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - if you're signed out you can sign in manually. \r\n> - no iSponsorBlock and YouSlider. (unstable in newer builds)\r\n> - Downloads working partially. depending on hardware codecs. \r\n> - Liquid Glass Support\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
           "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.45.4_1.3.1.ipa",
           "size": 133320959,
