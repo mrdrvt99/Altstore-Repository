@@ -152,7 +152,7 @@ jobs:
           for app_key, release in best.items():
               tag          = release['tag_name']
               published_at = release.get('published_at', '')
-              date_str     = published_at[:10] if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%d')
+              date_str = (published_at[:19] + "Z") if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
               release_body = (release.get('body') or '').strip()
 
               ipa_asset = next(
@@ -231,7 +231,7 @@ jobs:
               for release in releases:
                   tag          = release['tag_name']
                   published_at = release.get('published_at', '')
-                  date_str     = published_at[:10] if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%d')
+                  date_str = (published_at[:19] + "Z") if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
                   release_body = (release.get('body') or '').strip()
 
                   ipa_asset = next(
@@ -370,7 +370,7 @@ jobs:
           size         = ipa_asset['size']
           ipa_name     = ipa_asset['name']
           published_at = release.get('published_at', '')
-          date_str     = published_at[:10] if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%d')
+          date_str = (published_at[:19] + "Z") if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
           release_body = (release.get('body') or '').strip()
           tag          = release['tag_name']
 
