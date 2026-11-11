@@ -189,12 +189,12 @@ jobs:
 
                   matches = re.findall(r'(\d+\.\d+(?:\.\d+)?)', ipa_name)
                   if len(matches) >= 2:
-                      tweak_version = matches[0]
-                      ytm_version = matches[-1]
+                      ytm_version   = matches[0]
+                      tweak_version = matches[-1]
                   elif len(matches) == 1:
-                      tweak_version = ytm_version = matches[0]
+                      ytm_version = tweak_version = matches[0]
                   else:
-                      tweak_version = ytm_version = tag.lstrip('v')
+                      ytm_version = tweak_version = tag.lstrip('v')
 
                   base_name = "YTMusicUltimate"
                   current = all_by_name.get(base_name)
@@ -210,7 +210,7 @@ jobs:
                           "name":                 base_name,
                           "bundleIdentifier":     "com.google.ios.youtubemusic",
                           "developerName":        "mrdrvt99",
-                          "version":              ytm_version,
+                          "version":              ytm_version,          # 9.45.2
                           "versionDate":          date_str,
                           "versionDescription":   ytm_version,
                           "downloadURL":          download_url,
