@@ -210,7 +210,7 @@ jobs:
                           "name":                 base_name,
                           "bundleIdentifier":     "com.google.ios.youtubemusic",
                           "developerName":        "mrdrvt99",
-                          "version":              ytm_version,          # 9.45.2
+                          "version":              ytm_version,
                           "versionDate":          date_str,
                           "versionDescription":   ytm_version,
                           "downloadURL":          download_url,
