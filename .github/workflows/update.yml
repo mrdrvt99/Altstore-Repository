@@ -31,7 +31,7 @@ jobs:
       - name: Fetch YouProEXTRA Latest Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FORCE: ${{ github.event.inputs.force || 'false' }}
+          FORCE: ${{ github.event.inputs.force == 'true' && 'true' || 'false' }}
         run: |
           python3 << 'PYEOF'
           import json, urllib.request, urllib.error, os, re, sys
@@ -323,7 +323,7 @@ jobs:
       - name: Fetch YTMusicUltimate Latest Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FORCE: ${{ github.event.inputs.force || 'false' }}
+          FORCE: ${{ github.event.inputs.force == 'true' && 'true' || 'false' }}
         run: |
           python3 << 'PYEOF'
           import json, urllib.request, urllib.error, os, re, sys
