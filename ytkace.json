@@ -59,10 +59,10 @@
         },
         {
           "version": "21.33.6",
-          "date": "2026-11-11T12:26:35Z",
-          "localizedDescription": "YouTube 21.33.6 | YTKACE_21.33.6_1.1.7\n\n### iOS16+ Release, ENJOY!!\r\n#### A YouTube enhancer for iOS with downloads, iSponsorBlock, DeArrow, player controls, and interface customization.\r\n> [!NOTE]\r\n> - 📝[v1.1.7 release notes](https://github.com/itzzace/ytkace/releases/tag/v1.1.7)\r\n> - 🔽Set Download Button to Both in settings to enable Downloads. \r\n> - 📺 Functional YT Cast \r\n>\r\n> - - -\r\n>\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT` `Gonerino`",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa1/YTKACE_21.33.6_1.1.7.ipa",
-          "size": 129350283,
+          "date": "2026-11-15T20:45:41Z",
+          "localizedDescription": "YouTube 21.33.6 | YTKACE_21.33.6_1.1.8\n\n### iOS+16 Release, ENJOY!!\r\n#### A YouTube enhancer for iOS with downloads, iSponsorBlock, DeArrow, player controls, and interface customization.\r\n> [!NOTE]\r\n> - 📝[v1.1.8 release notes](https://github.com/itzzace/ytkace/releases/tag/v1.1.8)\r\n> - 🔽Set Download Button to Both in settings to enable Downloads. \r\n> - 📺 Functional YT Cast \r\n> - 🔨 Full reinstall is recommended if there's glitches/black screens. \r\n>\r\n> - - -\r\n>\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa1/YTKACE_21.33.6_1.1.8.ipa",
+          "size": 129251231,
           "minOSVersion": "16.0"
         }
       ]
