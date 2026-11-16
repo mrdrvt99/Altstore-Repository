@@ -15,11 +15,11 @@
       "subtitle": "YouMod",
       "category": "photo-video",
       "version": "21.46.3",
-      "versionDate": "2026-11-15T20:28:19Z",
+      "versionDate": "2026-11-16T18:30:11Z",
       "versionDescription": "21.46.3",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa2/YouMod_21.46.3_2.0.0.ipa",
-      "size": 134616978,
-      "localizedDescription": "YouTube 21.46.3 | YouMod_21.46.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - 📝[v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - 🫧 Liquid Glass Support\r\n> - ❕ Restart app after first launch\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.\r\n> - tweak is outdated, expect glitches and bugs.",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa1/YouMod_21.46.3_2.0.0.ipa",
+      "size": 134631446,
+      "localizedDescription": "YouTube 21.46.3 | YouMod_21.46.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - 📝[v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - 🫧 Liquid Glass Support\r\n> - ❕ Restart app after first launch\r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks` `YTLowContrastMode`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
       "screenshotURLs": [],
@@ -51,10 +51,10 @@
       "versions": [
         {
           "version": "21.46.3",
-          "date": "2026-11-15T20:28:19Z",
-          "localizedDescription": "YouTube 21.46.3 | YouMod_21.46.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - 📝[v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - 🫧 Liquid Glass Support\r\n> - ❕ Restart app after first launch\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.\r\n> - tweak is outdated, expect glitches and bugs.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa2/YouMod_21.46.3_2.0.0.ipa",
-          "size": 134616978,
+          "date": "2026-11-16T18:30:11Z",
+          "localizedDescription": "YouTube 21.46.3 | YouMod_21.46.3_2.0.0\n\n### Latest Release, ENJOY!!\r\n\r\n> [!NOTE]\r\n> - 📝[v2.0.0 release notes](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\n> - 🫧 Liquid Glass Support\r\n> - ❕ Restart app after first launch\r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks` `YTLowContrastMode`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT` \r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youmod-ipa1/YouMod_21.46.3_2.0.0.ipa",
+          "size": 134631446,
           "minOSVersion": "17.0"
         }
       ]

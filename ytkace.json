@@ -15,11 +15,11 @@
       "subtitle": "YTKACE",
       "category": "photo-video",
       "version": "21.46.3",
-      "versionDate": "2026-11-15T20:30:15Z",
+      "versionDate": "2026-11-16T18:28:26Z",
       "versionDescription": "21.46.3",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa3/YTKACE_21.46.3_1.1.8.ipa",
-      "size": 137333537,
-      "localizedDescription": "YouTube 21.46.3 | YTKACE_21.46.3_1.1.8\n\n### Latest Release, ENJOY!!\r\n#### A YouTube enhancer for iOS with downloads, iSponsorBlock, DeArrow, player controls, and interface customization.\r\n> [!NOTE]\r\n> - 📝[v1.1.8 release notes](https://github.com/itzzace/ytkace/releases/tag/v1.1.8)\r\n> - 🔽Set Download Button to Both in settings to enable Downloads. \r\n> - 📺 Functional YT Cast \r\n> - 🔨 Full reinstall is recommended if there's glitches/black screens. \r\n>\r\n> - - -\r\n>\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`\r\n\r\n> [!WARNING]\r\n> -  21.34.3+ builds require iOS 17+ now.",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa2/YTKACE_21.46.3_1.1.8.ipa",
+      "size": 137271018,
+      "localizedDescription": "YouTube 21.46.3 | YTKACE_21.46.3_1.1.8\n\n### Latest Release, ENJOY!!\r\n#### A YouTube enhancer for iOS with downloads, iSponsorBlock, DeArrow, player controls, and interface customization.\r\n> [!NOTE]\r\n> - 📝[v1.1.8 release notes](https://github.com/itzzace/ytkace/releases/tag/v1.1.8)\r\n> - 🔽Set Download Button to Both in settings to enable Downloads. \r\n> - 📺 Functional YT Cast \r\n> - 🔨 Full reinstall is recommended if there's glitches/black screens. \r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> - 📦`YTHoldForSpeed` `YTNativeShare` and  `Return-YouTube-Dislikes` are inside YTKACE\r\n>\r\n> - - -\r\n>\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTweaks` `YTLowContrastMode`\r\n> -  `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`\r\n\r\n> [!WARNING]\r\n> -  21.34.3+ builds require iOS 17+ now.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
       "screenshotURLs": [],
@@ -51,10 +51,10 @@
       "versions": [
         {
           "version": "21.46.3",
-          "date": "2026-11-15T20:30:15Z",
-          "localizedDescription": "YouTube 21.46.3 | YTKACE_21.46.3_1.1.8\n\n### Latest Release, ENJOY!!\r\n#### A YouTube enhancer for iOS with downloads, iSponsorBlock, DeArrow, player controls, and interface customization.\r\n> [!NOTE]\r\n> - 📝[v1.1.8 release notes](https://github.com/itzzace/ytkace/releases/tag/v1.1.8)\r\n> - 🔽Set Download Button to Both in settings to enable Downloads. \r\n> - 📺 Functional YT Cast \r\n> - 🔨 Full reinstall is recommended if there's glitches/black screens. \r\n>\r\n> - - -\r\n>\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTHoldForSpeed` `YTNativeShare` `YTweaks`\r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`\r\n\r\n> [!WARNING]\r\n> -  21.34.3+ builds require iOS 17+ now.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa3/YTKACE_21.46.3_1.1.8.ipa",
-          "size": 137333537,
+          "date": "2026-11-16T18:28:26Z",
+          "localizedDescription": "YouTube 21.46.3 | YTKACE_21.46.3_1.1.8\n\n### Latest Release, ENJOY!!\r\n#### A YouTube enhancer for iOS with downloads, iSponsorBlock, DeArrow, player controls, and interface customization.\r\n> [!NOTE]\r\n> - 📝[v1.1.8 release notes](https://github.com/itzzace/ytkace/releases/tag/v1.1.8)\r\n> - 🔽Set Download Button to Both in settings to enable Downloads. \r\n> - 📺 Functional YT Cast \r\n> - 🔨 Full reinstall is recommended if there's glitches/black screens. \r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> - 📦`YTHoldForSpeed` `YTNativeShare` and  `Return-YouTube-Dislikes` are inside YTKACE\r\n>\r\n> - - -\r\n>\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTweaks` `YTLowContrastMode`\r\n> -  `DontEatMyContent` `Open in YouTube (Safari Extension)` `VolumeBoostYT`\r\n\r\n> [!WARNING]\r\n> -  21.34.3+ builds require iOS 17+ now.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/ytkace-ipa2/YTKACE_21.46.3_1.1.8.ipa",
+          "size": 137271018,
           "minOSVersion": "17.0"
         },
         {
