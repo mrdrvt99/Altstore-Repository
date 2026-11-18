@@ -82,15 +82,15 @@
       "name": "YTMusicUltimate",
       "bundleIdentifier": "com.google.ios.youtubemusic",
       "developerName": "mrdrvt99",
-      "version": "9.46.3",
-      "versionDate": "2026-11-15T19:42:46Z",
-      "versionDescription": "9.46.3",
-      "downloadURL": "https://github.com/mrdrvt99/YTMusicUltimate/releases/download/ytmu-ipa43/YTMusicUltimate_9.46.3_2.4.1.ipa",
-      "localizedDescription": "YTMusicUltimate 2.4.1 | YTMusic 9.46.3 | YTMusicUltimate_9.46.3_2.4.1\n\n> [!NOTE]\r\n> ### Extra tweaks:\r\n> - Return YouTubeMusic Dislikes\r\n> - YTMABConfig\r\n>\r\n- - -\r\n> [!IMPORTANT]\r\n> - YouMusicPiP and VolumeBoostYT are only available in custom build.\r\n> - iOS14+ build is available in releases page",
+      "version": "9.46.5",
+      "versionDate": "2026-11-18T22:45:19Z",
+      "versionDescription": "9.46.5",
+      "downloadURL": "https://github.com/mrdrvt99/YTMusicUltimate/releases/download/ytmu-ipa44/YTMusicUltimate_9.46.5_2.4.1.ipa",
+      "localizedDescription": "YTMusicUltimate 2.4.1 | YTMusic 9.46.5 | YTMusicUltimate_9.46.5_2.4.1\n\n> [!NOTE]\r\n> ### Extra tweaks:\r\n> - Return YouTubeMusic Dislikes\r\n> - YTMABConfig\r\n>\r\n- - -\r\n> [!IMPORTANT]\r\n> - YouMusicPiP and VolumeBoostYT are only available in custom build.\r\n> - iOS14+ build is available in releases page",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YTMusic.png",
       "tintColor": "FF0000",
       "isLanZouCloud": 0,
-      "size": 108283176,
+      "size": 108286251,
       "type": 1
     }
   ]
