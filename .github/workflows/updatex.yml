@@ -45,7 +45,6 @@ jobs:
 
           TAG_TO_INFO = {
               'ytl-ipa':         ("YoutubePlus (YTLite)", "YTLite",       "dayanch96"),
-              'ytkp-ipa':        ("YTKillerPlus",         "YTKillerPlus", "iKarwan"),
               'ytkace-ipa':      ("YTKACE",               "YTKACE",       "itzzace0"),
               'youproextra-ipa': ("YouPro",               "YouProExtra",  "alibusut"),
               'youmod-ipa':      ("YouMod",               "YouMod",       "Tonwalter888"),
@@ -57,7 +56,6 @@ jobs:
 
           ORDER = [
               "YoutubePlus (YTLite)",
-              "YTKillerPlus",
               "YTKACE",
               "YouPro",
               "YouMod",
