@@ -14,12 +14,12 @@
       "developerName": "alibusut",
       "subtitle": "YouPro",
       "category": "photo-video",
-      "version": "21.46.3",
-      "versionDate": "2026-11-16T18:58:39Z",
-      "versionDescription": "21.46.3",
-      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa3/YouProExtra_21.46.3_1.3.4.ipa",
-      "size": 134342431,
-      "localizedDescription": "YouTube 21.46.3 | YouProExtra_21.46.3_1.3.4\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - 📺Full 4KHDR support.\r\n> - 📦Downloads working partially. depending on hardware codecs. \r\n> - 🫧 Liquid Glass and iPhone Duo support.\r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTLowContrastMode` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)`\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+      "version": "21.47.6",
+      "versionDate": "2026-11-23T00:20:10Z",
+      "versionDescription": "21.47.6",
+      "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa3/YouProExtra_21.47.6_1.3.4.ipa",
+      "size": 135736769,
+      "localizedDescription": "YouTube 21.47.6 | YouProExtra_21.47.6_1.3.4\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - 📺Full 4KHDR support.\r\n> - 📦Downloads working partially. depending on hardware codecs. \r\n> - 🫧 Liquid Glass and iPhone Duo support.\r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTLowContrastMode` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)`\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
       "iconURL": "https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/assets/YouTube.png",
       "tintColor": "FF0000",
       "screenshotURLs": [],
@@ -50,12 +50,28 @@
       },
       "versions": [
         {
-          "version": "21.46.3",
-          "date": "2026-11-16T18:58:39Z",
-          "localizedDescription": "YouTube 21.46.3 | YouProExtra_21.46.3_1.3.4\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - 📺Full 4KHDR support.\r\n> - 📦Downloads working partially. depending on hardware codecs. \r\n> - 🫧 Liquid Glass and iPhone Duo support.\r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTLowContrastMode` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)`\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
-          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa3/YouProExtra_21.46.3_1.3.4.ipa",
-          "size": 134342431,
+          "version": "21.47.6",
+          "date": "2026-11-23T00:20:10Z",
+          "localizedDescription": "YouTube 21.47.6 | YouProExtra_21.47.6_1.3.4\n\n### Latest Release, ENJOY!!\r\n> [!NOTE]\r\n> - 📺Full 4KHDR support.\r\n> - 📦Downloads working partially. depending on hardware codecs. \r\n> - 🫧 Liquid Glass and iPhone Duo support.\r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTLowContrastMode` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)`\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa3/YouProExtra_21.47.6_1.3.4.ipa",
+          "size": 135736769,
           "minOSVersion": "17.0"
+        },
+        {
+          "version": "21.33.6",
+          "date": "2026-11-23T00:34:29Z",
+          "localizedDescription": "YouTube 21.33.6 | YouProExtra_21.33.6_1.3.4\n\n### iOS16+ Release, ENJOY!!\r\n> [!NOTE]\r\n> - 📺Full 4KHDR support.\r\n> - 📦Downloads working partially. depending on hardware codecs. \r\n> - 🆕 `YTLowContrastMode` tweak, enabled by default.\r\n> \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` `YTLowContrastMode` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `Open in YouTube (Safari Extension)`\r\n\r\n> [!WARNING]\r\n> - 21.34.3+ builds require iOS 17+ now.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa2/YouProExtra_21.33.6_1.3.4.ipa",
+          "size": 126259311,
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "21.24.3",
+          "date": "2026-09-10T00:03:45Z",
+          "localizedDescription": "YouTube 21.24.3 | YouProExtra_21.24.3_1.3.1\n\n### Latest Stable Release, ENJOY!!\r\n> [!NOTE]\r\n> - Bundled with **YTUHD**.\r\n> - Updated Gonerino and YT Headers. \r\n> - if you're signed out you can sign in manually. \r\n> - - -\r\n> #### Extra Tweaks:\r\n> - `YouPip` `YTUHD` `YouSlider` `YTweaks` `YouSpeed` `YouMute` `YouLoop` `YTABConfig` `YouQuality` `YouChooseQuality`  `YouGetCaption` \r\n> -  `Return-YouTube-Dislikes` `DontEatMyContent` `iSponsorBlock` `Open in YouTube (Safari Extension)` `Gonerino` \r\n\r\n> [!WARNING]\r\n> - Limited Support for new YT versions.(+21.25.5). 21.24.3 is the latest build that works with extra tweaks.",
+          "downloadURL": "https://github.com/mrdrvt99/YouProEXTRA/releases/download/youproextra-ipa1/YouProExtra_21.24.3_1.3.1.ipa",
+          "size": 120003293,
+          "minOSVersion": "16.0"
         }
       ]
     }
