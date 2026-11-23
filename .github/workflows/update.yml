@@ -28,7 +28,7 @@ jobs:
         with:
           ref: main
 
-      - name: Fetch YouProEXTRA Latest Release
+      - name: Fetch YouProEXTRA Releases
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FORCE: ${{ github.event.inputs.force == 'true' && 'true' || 'false' }}
@@ -41,21 +41,12 @@ jobs:
           GH_TOKEN    = os.environ.get('GH_TOKEN', '')
           FORCE       = os.environ.get('FORCE', 'false').lower() == 'true'
 
-          TAG_MAP = {
-              'youmod-ipa':      'youmod',
-              'youproextra-ipa': 'youpro',
-              'ytkp-ipa':        'ytkp',
-          }
-
-          FILES = {
-              'ytkp':   'ytkp.json',
-              'youpro': 'youpro.json',
-              'youmod': 'youmod.json',
-          }
-
+          # tag prefix -> source file (all keep every version)
           MULTI_VERSION = {
-              'ytl-ipa':    'ytlite.json',
-              'ytkace-ipa': 'ytkace.json',
+              'ytl-ipa':         'ytlite.json',
+              'ytkace-ipa':      'ytkace.json',
+              'youproextra-ipa': 'youpro.json',
+              'youmod-ipa':      'youmod.json',
           }
 
           IGNORE_PREFIXES = [
@@ -119,10 +110,8 @@ jobs:
               return int(m.group(1)) if m else -1
 
           all_releases = fetch_all_releases(SOURCE_REPO)
-          published = [r for r in all_releases if not r['draft'] and not r['prerelease']]
           non_draft = [r for r in all_releases if not r['draft']]
 
-          best = {}
           multi_releases = {prefix: [] for prefix in MULTI_VERSION}
 
           for release in non_draft:
@@ -134,88 +123,9 @@ jobs:
                       multi_releases[prefix].append(release)
                       break
 
-          for release in published:
-              tag = release['tag_name']
-              if any(tag.startswith(p) for p in IGNORE_PREFIXES):
-                  continue
-              if any(tag.startswith(p) for p in MULTI_VERSION):
-                  continue
-              for prefix, key in TAG_MAP.items():
-                  if tag.startswith(prefix) and key not in best:
-                      best[key] = release
-                      break
-
-          if not best and not any(multi_releases.values()):
+          if not any(multi_releases.values()):
               print("No matching releases found.")
               sys.exit(0)
-
-          for app_key, release in best.items():
-              tag          = release['tag_name']
-              published_at = release.get('published_at', '')
-              date_str = (published_at[:19] + "Z") if published_at else datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-              release_body = (release.get('body') or '').strip()
-
-              ipa_asset = next(
-                  (a for a in release.get('assets', []) if a['name'].endswith('.ipa')),
-                  None
-              )
-              if not ipa_asset:
-                  print(f"No .ipa asset for {tag} — skipping.")
-                  failed.append(f"{app_key} ({tag}): no ipa")
-                  continue
-
-              download_url = ipa_asset['browser_download_url']
-              size         = ipa_asset['size']
-              ipa_name     = ipa_asset['name']
-
-              filename = FILES[app_key]
-              with open(filename, 'r') as f:
-                  source = json.load(f)
-
-              app = source['apps'][0]
-
-              matches = re.findall(r'(\d+\.\d+\.\d+)', ipa_name)
-              if not matches:
-                  print(f"::warning::Could not parse version from '{ipa_name}' — skipping.")
-                  failed.append(f"{filename}: parse failed")
-                  continue
-              yt_version = matches[0]
-
-              if not FORCE and app.get('downloadURL') == download_url and app.get('version') == yt_version:
-                  print(f"{filename} already up to date.")
-                  skipped.append(filename)
-                  continue
-
-              ipa_label = ipa_name.replace('.ipa', '')
-              full_description = (
-                  f"YouTube {yt_version} | {ipa_label}\n\n{release_body}"
-                  if release_body else
-                  f"YouTube {yt_version} | {ipa_label}"
-              )
-
-              new_entry = {
-                  "version":              yt_version,
-                  "date":                 date_str,
-                  "localizedDescription": full_description,
-                  "downloadURL":          download_url,
-                  "size":                 size,
-                  "minOSVersion":         get_min_os(yt_version)
-              }
-
-              app['versions']             = [new_entry]
-              app['version']              = yt_version
-              app['versionDate']          = date_str
-              app['versionDescription']   = yt_version
-              app['localizedDescription'] = full_description
-              app['downloadURL']          = download_url
-              app['size']                 = size
-
-              with open(filename, 'w') as f:
-                  json.dump(source, f, indent=2, ensure_ascii=False)
-                  f.write('\n')
-
-              print(f"Updated {filename}: '{app['name']}' → YouTube {yt_version} ({tag})")
-              updated.append(filename)
 
           for prefix, filename in MULTI_VERSION.items():
               releases = multi_releases.get(prefix, [])
@@ -425,11 +335,11 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ytlite.json ytkp.json youpro.json youmod.json ytkace.json ytmusic.json
+          git add ytlite.json youpro.json youmod.json ytkace.json ytmusic.json
           if git diff --staged --quiet; then
             echo "No changes — nothing to commit."
           else
-            git commit -m "chore(altstore): sync latest release from YouProEXTRA & YTMusicUltimate"
+            git commit -m "chore(altstore): sync latest releases from YouProEXTRA & YTMusicUltimate"
             git pull --rebase
             git push
             echo "Source files committed and pushed."
