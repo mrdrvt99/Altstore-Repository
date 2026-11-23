@@ -11,10 +11,6 @@ AltStore/ESign/Feather/SideStore/LiveContainer source for all [YouProEXTRA](http
 ```
 https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/ytlite.json
 ```
-### YTKillerPlus
-```
-https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/ytkp.json
-```
 ### YouPro
 ```
 https://raw.githubusercontent.com/mrdrvt99/Altstore-Repository/main/youpro.json
